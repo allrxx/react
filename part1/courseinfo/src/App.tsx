@@ -1,4 +1,6 @@
-import './App.css'
+import Content from './comp/Content'
+import Header from './comp/Header'
+import Total from './comp/Total'
 
 const App = ()=>{
 
@@ -12,17 +14,19 @@ const App = ()=>{
 
   return (
     <>
-      <h1>{course}</h1>
-      <p>
-        {part1} {exe1}
-      </p>
-      <p>
-        {part2} {exe2}
-      </p>
-      <p>
-        {part3} {exe3}
-      </p>
-      <p>Number of excercies {exe1+exe2+exe3}</p>
+      <Header title={course}/>
+      <ol>
+        <li>
+          <Content content={part1} exe={exe1}/>
+        </li>
+        <li>
+          <Content content={part2} exe={exe2}/>
+        </li>
+        <li>
+          <Content content={part3} exe={exe3}/>
+        </li>
+      </ol>
+      <Total total = {exe1+exe2+exe3}/>
     </>
   )
 }
