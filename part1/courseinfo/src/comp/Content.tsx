@@ -1,14 +1,25 @@
-type contentProps = {
-    content: string;
-    exe : number;
+type parts = {
+    name: string,
+    exe: number
 }
 
-const Content = ({content,exe}:contentProps) => {
+type contentProps = {
+    content: parts[]
+}
 
+const Content = ({content}:contentProps) => {
+    console.log(content)
     return(
-        <>
-            <p>{content}: Excersies - {exe}</p>
-        </>
+    <>
+            {
+                content.map((part,index) => (
+                    <div key={index}>
+                        <p> {part.name} - Number of Excersies: {part.exe}</p> 
+                    </div>
+                    )
+                )
+            }
+    </>
     )
 
 }
